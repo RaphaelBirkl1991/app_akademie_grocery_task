@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:grocery_task/common/domain/category.dart';
 import 'package:grocery_task/common/domain/product_badge.dart';
 
@@ -11,6 +12,18 @@ class Product {
     this.category,
     this.badge,
   });
+
+  factory Product.fromFirestore(DocumentSnapshot doc) {
+    if (!doc.exists) throw ArgumentError("Dokument has no context");
+
+    final Map<String, dynamic> data = doc.data() as Map<String, dynamic>;
+    return Product(
+        name: doc.id,
+        description: data["description"],
+        price: data["price"],
+        imageAsset: data["imageAsset"],
+        colorValue: data["colorValue"]);
+  }
 
   final String name;
   final String description;

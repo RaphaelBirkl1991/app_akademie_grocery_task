@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1073270093767",
+    "project_id": "grocery-task-raphael",
+    "storage_bucket": "grocery-task-raphael.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1073270093767:android:9882431647b0609a1f4be2",
+        "android_client_info": {
+          "package_name": "com.example.grocery_task"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAdtCpd4pnq6FZgHjkEVA2NmWlZBeUAttM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
