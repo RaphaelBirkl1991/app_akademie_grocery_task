@@ -20,7 +20,7 @@ class Product {
     final price = data["price"];
 
     return Product(
-        name: doc.id,
+        name: data["name"],
         description: data["description"],
         // price: double.parse(price),
         price: double.parse(price.toString()),
