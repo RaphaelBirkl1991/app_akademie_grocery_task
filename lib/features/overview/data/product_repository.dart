@@ -40,12 +40,6 @@ class ProductRepository {
   Future<void> addProduct(Product product) async {
     final CollectionReference<Map<String, dynamic>> productCollectionRef =
         _firestore.collection("products");
-    productCollectionRef.add({
-      "name": product.name,
-      "description": product.description,
-      "price": double.parse(product.price.toString()),
-      "imageAsset": product.imageAsset,
-      "colorValue": product.colorValue,
-    });
+    productCollectionRef.add(product.toMap());
   }
 }
