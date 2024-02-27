@@ -39,13 +39,16 @@ class Product {
     if (!doc.exists) throw ArgumentError("Dokument has no context");
 
     final Map<String, dynamic> data = doc.data() as Map<String, dynamic>;
-    final price = data["price"];
+
+    print(data);
+
+    final price = data["price"].toDouble();
 
     return Product(
       name: data["name"],
       description: data["description"],
       // price: double.parse(price),
-      price: double.parse(price.toString()),
+      price: price,
       imageAsset: data["imageAsset"],
       colorValue: data["colorValue"],
       badge: ProductBadge.fromMap(data["badge"]),

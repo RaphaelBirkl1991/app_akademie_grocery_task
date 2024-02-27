@@ -12,10 +12,10 @@ class ProductRepository {
   Stream<List<Product>> get products {
     final productsCollectionRef = _firestore.collection("products");
     final productSnapshot = productsCollectionRef.snapshots();
-    final productsStram = productSnapshot.map((snapshot) => snapshot.docs
+    final productsStream = productSnapshot.map((snapshot) => snapshot.docs
         .map((product) => Product.fromFirestore(product))
         .toList());
-    return productsStram;
+    return productsStream;
   }
 
 // Fügt alle Produkte aus der MockProdukts hinzu

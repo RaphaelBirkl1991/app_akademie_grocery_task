@@ -13,8 +13,18 @@ class WishlistRepository {
   final StreamController<List<Product>> _productsController =
       StreamController<List<Product>>();
 
+  // Stream<List<Product>> get products {
+  //   return _productsController.stream;
+  // }
+
   Stream<List<Product>> get products {
-    return _productsController.stream;
+    final wishCollectionRef = _firestore.collection("wishlist");
+    final wishSnapshot = wishCollectionRef.snapshots();
+    final wishStream =
+        wishSnapshot.map((snapshot) => snapshot.docs.map((product) {
+              return Product.fromFirestore(product);
+            }).toList());
+    return wishStream;
   }
 
   // Future<void> addProduct(Product product) async {
